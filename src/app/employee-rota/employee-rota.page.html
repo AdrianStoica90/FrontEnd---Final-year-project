@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Rota for: {{ loadedEmployee.name }} {{loadedEmployee.surname }}</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/employee"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content color="primary">
+  <ion-card>
+    <ion-item>
+      <ion-label> >>> Select date to see your schedule <<< </ion-label>
+      <ion-select interface="popover" [(ngModel)]="dateSelection" (ionChange)="getDate()">
+        <ion-select-option *ngFor="let emp of listOfSchedules">{{ emp }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-col>
+        Sunday
+        <ion-item>{{ sunday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Monday
+        <ion-item>{{ monday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Tuesday
+        <ion-item>{{ tuesday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Wednesday
+        <ion-item>{{ wednesday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Thursday
+        <ion-item>{{ thursday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Friday
+        <ion-item>{{ friday }}</ion-item>
+      </ion-col>
+      <ion-col>
+        Saturday
+        <ion-item>{{ saturday }}</ion-item>
+      </ion-col>
+    </ion-grid>
+    <ion-button [routerLink]="['./scans']">Scans</ion-button>
+  </ion-card>
+</ion-content>

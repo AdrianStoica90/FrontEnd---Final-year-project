@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Client Records</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+  <ion-buttons slot="start">
+    <ion-back-button routerLink="/admin"></ion-back-button>
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-card-header>
+      <ion-searchbar placeholder="Search clients here" [(ngModel)]="queryString" (ionInput)="updateList($event.target.value)" ></ion-searchbar>
+    </ion-card-header>
+    <ion-list>
+      <ion-item> <ion-label>Name</ion-label><ion-label>Surname</ion-label><ion-label>Email</ion-label><ion-label>Company</ion-label></ion-item>
+      <ion-item *ngFor="let client of listOfClients"> 
+        <ion-label> {{ client.name }} </ion-label><ion-label> {{ client.surname }} </ion-label><ion-label>{{ client.email }}</ion-label><ion-label> {{ client.clientName }} </ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,87 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Adding new user</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+      <ion-buttons slot="start">
+        <ion-back-button routerLink="/admin"></ion-back-button>
+      </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header color="primary">
+      <ion-label><h2>Please select the type of user:</h2></ion-label>
+    </ion-card-header>
+  </ion-card>
+<ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-list>
+        <ion-radio-group (ionChange)="onTypeSelect($event)">
+          <ion-list-header>
+            <ion-label>Type of user</ion-label>
+          </ion-list-header>
+          <ion-item>
+          <ion-col size="4">
+          <ion-item>
+            <ion-label>Worker</ion-label>
+            <ion-radio slot="start" color="success" value="worker"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Client</ion-label>
+            <ion-radio slot="start" color="tertiary" value="client"></ion-radio>
+          </ion-item>
+        </ion-col>
+        <ion-col size="4">
+          <ion-item>
+            <ion-label>Admin</ion-label>
+            <ion-radio slot="start" color="danger" value="admin"></ion-radio>
+          </ion-item>
+        </ion-col>
+      </ion-item>
+        </ion-radio-group>
+        </ion-list>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item>
+      <ion-label position="floating">Name:</ion-label>
+      <ion-input id="input-username" type="text" [(ngModel)]="nameInput"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Surname:</ion-label>
+      <ion-input id="input-username" type="text" [(ngModel)]="surnameInput"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Email:</ion-label>
+      <ion-input id="input-username" type="text" [(ngModel)]="emailInput"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Password:</ion-label>
+      <ion-input id="input-password" type="password" [(ngModel)]="passwordInput"></ion-input>
+    </ion-item>
+    <ion-item [hidden]="clientNameVisible">
+      <ion-label position="floating">Client name:</ion-label>
+      <ion-input [(ngModel)]="clientNameInput"></ion-input>
+    </ion-item>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+
+    <ion-col size="4"></ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col size="2"> <ion-button [disabled]="buttonStatus" (click)="onCreateNew()">Submit</ion-button></ion-col>
+    <ion-col size="1"></ion-col>
+    <ion-col size="4"></ion-col>
+    
+  </ion-row>
+</ion-grid>
+
+</ion-content>

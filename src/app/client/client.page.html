@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title> {{ loadedUserName }} {{ loadedUserSurname }}</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content size-md="6" offset-md="3">
+  <ion-grid>
+    <br/><br/><br/><br/><br/><br/><br/><br/>
+    <ion-row>
+      <ion-col size = 1></ion-col>
+      <ion-col size = 10 class="ion-text-center">
+          <ion-button id="btn-start" [routerLink]="['./start-scan']"><ion-icon size="large" slot="start" name="log-in-outline"></ion-icon><h2>Scan IN</h2></ion-button><br/><br/><br/><br/><br/><br/>
+          <ion-button id="btn-stop" [routerLink]="['./finish-scan']"><ion-icon size="large" slot="start" name="log-out-outline"></ion-icon><h2>Scan OUT</h2></ion-button><br/><br/><br/><br/><br/><br/>
+          <ion-button id="btn-viewReports" [routerLink]="['./scan-reports']"><ion-icon size="large" slot="start" name="file-tray-full"></ion-icon><h2>View Reports</h2></ion-button>
+      </ion-col>
+      <ion-col size = 1></ion-col>
+    </ion-row>
+</ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-item>V1.0 - this application is still under development</ion-item>
+  </ion-toolbar>
+</ion-footer>

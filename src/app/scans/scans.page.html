@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Scan reports</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/admin"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-card-header>
+      <ion-searchbar placeholder="Search" [(ngModel)]="queryString" (ionInput)="updateList($event.target.value)" ></ion-searchbar>
+    </ion-card-header>
+    <ion-list>
+      <ion-item><ion-label>Employee ID</ion-label><ion-label>Client name</ion-label><ion-label>Type of scan</ion-label><ion-label>Date and time</ion-label></ion-item>
+      <ion-item *ngFor="let scans of listOfRecords">
+        <ion-label>{{ scans.employeeID }}</ion-label><ion-label>{{ scans.records[0].clientName }}</ion-label><ion-label>{{ scans.records[0].typeOfScan }}</ion-label><ion-label>{{ scans.records[0].dateTime }}</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-grid>
+</ion-content>

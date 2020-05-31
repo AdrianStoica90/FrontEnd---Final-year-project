@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Start of shift scan</ion-title>
+    <button class="ion-activatable ripple-parent" slot="end" (click)="onLogout()">
+      Logout<ion-icon name="key"></ion-icon>
+      <ion-ripple-effect type="unbounded"></ion-ripple-effect>
+    </button>
+    <ion-buttons slot="start">
+      <ion-back-button routerLink="/client"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="1">
+      </ion-col>
+      <ion-col size="10" class="ion-text-center">
+        <zxing-scanner #scanner start="true" (scanSuccess)="setStringID($event)" (click)="scanNow()" [formats]="['QR_CODE', 'EAN_13', 'CODE_128', 'DATA_MATRIX']"></zxing-scanner>
+      </ion-col>
+      <ion-col size="1">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+      <ion-list-header><h3 color="primary">Scans:</h3></ion-list-header>
+      <ion-list>
+        <ion-item *ngFor="let scan of listOfScans">
+          <ion-label>{{ scan.id }}</ion-label>
+          <ion-label>{{ scan.name }}</ion-label>
+          <ion-label>{{ scan.surname }}</ion-label>
+          <ion-label>{{ scan.dateTime.toString() }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-item>Hybrid Attendance Tracker</ion-item>
+  </ion-toolbar>
+</ion-footer>
